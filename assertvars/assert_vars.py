@@ -25,11 +25,12 @@ def _get_vars_names(source, line):
             yield expr.id
 
 
-def _get_source_line(source, line):
-    return source.split('\n')[line]
-
-
 def show_vars(e):
+    """
+    Show variables values used inside assertion statement
+
+    :param e: an instance of AssertionError exception
+    """
     tb = e.__traceback__
     frame = tb.tb_frame
     code = frame.f_code

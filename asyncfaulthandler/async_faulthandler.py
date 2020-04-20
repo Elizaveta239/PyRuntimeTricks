@@ -17,4 +17,12 @@ def _stacktraces(loop, interval, repeat, file=sys.stderr):
 
 
 def start_tracing(loop, interval, repeat=True, file=sys.stderr):
+    """
+    Dump traceback for all asynchronous tasks in the loop
+
+    :param loop: tasks running in this loop will be shown
+    :param interval: interval between dumping traceback (in seconds)
+    :param repeat: if True, traceback will be repeated with the interval
+    :param file: file for printing the output
+    """
     threading.Thread(target=_stacktraces, args=(loop, interval, repeat, file,)).start()
